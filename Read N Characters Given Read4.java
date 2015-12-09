@@ -14,28 +14,19 @@ public class Solution extends Reader4 {
         int cur = 0;
         while (cur < n) {
             count = read4(toRead);
-
-            if (count < 4) {
-                int step = 0;
-                for (; step < count; step++) {
-                    if(cur + step == n)
-                        return n;
-                    else {
-                        buf[cur + step] = toRead[step];
-                    }
+            int step = 0;
+            for (; step < count; step++) {
+                if(cur + step == n)
+                    return n;
+                else {
+                    buf[cur + step] = toRead[step];
                 }
-                return cur + step ;
-            } else {//count == 4
-                int step = 0;
-                for (; step < count; step++) {
-                    if(cur + step == n)
-                        return n;
-                    else {
-                        buf[cur + step] = toRead[step];
-                    }
-                }
-                cur += count;
             }
+            if (count < 4) 
+                return cur + step ;
+             else 
+                cur += count;
+            
         }
         
         return n;
